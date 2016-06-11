@@ -8,24 +8,38 @@
  *
  * Main module of the application.
  */
-angular
-  .module('bugHackersApp', [
-    'ngResource',
-    'ngRoute'
-  ])
-  .config(function ($routeProvider) {
-    $routeProvider
-      .when('/', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl',
-        controllerAs: 'main'
-      })
-      .when('/about', {
-        templateUrl: 'views/about.html',
-        controller: 'AboutCtrl',
-        controllerAs: 'about'
-      })
-      .otherwise({
-        redirectTo: '/'
-      });
+angular.module('bugHackersApp', ['ui.router','ngResource'])
+  .config(function ($stateProvider, $urlRouterProvider) {
+    $stateProvider
+    
+      //route for the home page
+      .state('app', {
+        url:'/',
+        views: {
+            'header':{
+                templateUrl : 'views/header.html',
+            },
+            'content':{
+                templateUrl : 'views/main.html',
+                controller  : 'MainCtrl',
+            },
+            'footer': {
+                templateUrl : 'views/footer.html',
+            }
+        }
+     })
+    
+     //route for the about page
+      .state('app.about', {
+        url:'about',
+        views: {
+            '@content':{
+                templateUrl : 'views/about.html',
+                controller  : 'AboutCtrl',
+            }
+        }
+     });
+     
+     $urlRouterProvider.otherwise('/');
+    
   });
