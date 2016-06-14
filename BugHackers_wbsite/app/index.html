@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html ng-app='bugHackersApp' lang="en">
   <head>
     <meta charset="utf-8">
@@ -15,6 +15,53 @@
     <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../bower_components/font-awesome/css/font-awesome.min.css">
+    <style>
+        /* navbar styling */
+        .navbar-inverse {
+        background: #00ace6;
+        color: #ffffff;
+        height: 60px;
+        }
+
+        .navbar-inverse .navbar-nav > .active > a {
+        background: #0099cc;
+        color: #ffffff;
+        }
+        .navbar-inverse .navbar-nav > .active > a:hover {
+        background: #0099cc;
+        color: #ffffff;
+        }
+        .navbar-inverse .navbar-nav > .active > a:focus {
+            background: #0099cc;
+            color: #ffffff;
+        }
+        .navbar-inverse .navbar-nav > .open > a {
+            background: #0099cc;
+            color: #ffffff;
+        }
+        .navbar-inverse .navbar-nav > .open > a:hover {
+            background: #0099cc;
+            color: #ffffff;
+        }
+        .navbar-inverse .navbar-nav > .open > a:focus {
+            background: #0099cc;
+            color: #ffffff;
+        }
+        .navbar-inverse .navbar-nav .open .dropdown-menu > li > a {
+            background-color: #00ace6;
+            color: #eeeeee;
+        }
+        .navbar-inverse .navbar-nav .open .dropdown-menu > li > a:hover {
+            color: #000000;
+        }
+        .navbar-inverse .navbar-nav .open .dropdown-menu {
+            background-color: #00ace6;
+            color: #eeeeee;
+        }
+
+
+      
+    </style>
     <!-- endbuild -->
   </head>
   <body>
@@ -29,11 +76,24 @@
       
     <div ui-view="footer"></div>
 
+      
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
+    <script>
+       !function(A,n,g,u,l,a,r){A.GoogleAnalyticsObject=l,A[l]=A[l]||function(){
+       (A[l].q=A[l].q||[]).push(arguments)},A[l].l=+new Date,a=n.createElement(g),
+       r=n.getElementsByTagName(g)[0],a.src=u,r.parentNode.insertBefore(a,r)
+       }(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+ 
+       ga('create', 'UA-XXXXX-X');
+       ga('send', 'pageview');
+    </script>  
 
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
     <!-- endbower -->
     <!-- endbuild -->
+      
+     
 
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         
