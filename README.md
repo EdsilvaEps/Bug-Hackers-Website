@@ -1,3 +1,5 @@
 # Bug-Hackers-Website
-the website for Bug Hackers Hackerspace
+
+Website for Bug Hackers Hackerspace-UFAM
+made with React by Edson N Silva
 
