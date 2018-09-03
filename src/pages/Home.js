@@ -7,6 +7,7 @@ import { AboutJumboContainer } from '../containers/AboutJumboContainer';
 import { InfoContainer } from '../containers/InfoContainer';
 import { Container, Row, Col } from 'reactstrap';
 import { Link, DirectLink, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
+import PropTypes from 'prop-types'
 
 export class Home extends Component {
   render(){
@@ -35,7 +36,7 @@ export class Home extends Component {
         <AboutJumboContainer/>
       </Element>
 
-      <Element name="contact" className="element">
+      <Element name="info" className="element">
         <InfoContainer/>
       </Element>
 

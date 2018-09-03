@@ -1,40 +1,48 @@
 import React from 'react';
 import { Jumbotron, Button, Container, Media, Row, Col } from 'reactstrap';
+import PropTypes from 'prop-types';
+
 
 //TODO: apply styles to background, pictures, paragraphs and margins
 export const Info = (props)=>{
 
   const pages = props.items.map((item) =>{
 
-    const media = item.srcs.map((data) =>{
+    const media = item.srcs.map((data, index) =>{
       // TODO: add columns for even numbered data
+
+
       return(
-        <Row>
+        <Col>
           <Media>
             <Media left>
-              <Media object src={data.src} alt={data.alt}/>
+              <Media object src={data.src} alt={data.alt} className="events-image"/>
             </Media>
-            <Media body>
+            <Media body className="about-text-left">
               <Media heading>
                 {data.title}
               </Media>
               {data.description}
             </Media>
           </Media>
-        </Row>
+        </Col>
       );
+
+
+
 
     });
 
 
     return(
-      <Jumbotron fluid>
+      <Jumbotron fluid  className="infoJumbo">
         <Container fluid>
           <h1>{item.title}</h1>
-          {media}
-          <p className="lead">
-            <Button color="primary">Learn More</Button>
-          </p>
+          <br/>
+          <Row>
+            {media}
+          </Row>
+
         </Container>
       </Jumbotron>
     );
@@ -47,3 +55,20 @@ export const Info = (props)=>{
   );
 
 }
+
+
+Info.propTypes = {
+  items : PropTypes.array,
+};
+
+Info.defaultProps = {
+  items: [
+    {
+      title: ' ',
+      description:'Hic Svnt Dracones ',
+      src: '',
+      link:'',
+      alt:''
+    }
+  ]
+};

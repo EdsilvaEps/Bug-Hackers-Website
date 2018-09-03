@@ -12,9 +12,7 @@ const items = [
         src: require('../img/filipef.png'),
         alt:'filipeflop',
         link:"",
-        description:"Estamos no mercado desde de 2010 e, impulsionados\
-         pelo potencial do open source hardware, acreditamos no mercado brasileiro. \
-         A busca incansável pela variedade e qualidade nos tornou um dos maiores \
+        description:"A busca incansável pela variedade e qualidade nos tornou um dos maiores \
          e-commerce de componentes eletrônicos do país."
       },
 
@@ -24,6 +22,18 @@ const items = [
         alt:'embarcados',
         link:"",
         description:"Hic Svnt Dracones"
+      },
+
+      {
+        title: 'Campus Party Brasil',
+        src: require('../img/campusparty.png'),
+        alt:'',
+        link:'campusparty',
+        description: "A Campus Party Brasil é o principal acontecimento tecnológico\
+         realizado anualmente no Brasil. Nele são tratados os mais diversos temas\
+          relacionados à Internet, reunindo um grande número de comunidades \
+          e usuários da rede mundial de computadores envolvidos com \
+          tecnologia e cultura digital."
       }
 
     ]

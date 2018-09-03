@@ -1,5 +1,6 @@
 import React , { Component}  from 'react';
 import { Container, Row, Col, Jumbotron, Media } from 'reactstrap';
+import PropTypes from 'prop-types'
 
 
 export const AboutJumbo = (props) =>{
@@ -67,4 +68,21 @@ export const AboutJumbo = (props) =>{
           </Jumbotron>
         </div>
   );
+};
+
+
+AboutJumbo.propTypes = {
+  items : PropTypes.array,
+};
+
+AboutJumbo.defaultProps = {
+  items: [
+    {
+      title: ' ',
+      description:'Hic Svnt Dracones ',
+      badge: '',
+      src: '',
+      alt:''
+    }
+  ]
 };

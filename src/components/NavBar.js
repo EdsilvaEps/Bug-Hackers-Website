@@ -78,6 +78,11 @@ export class NavBar extends Component {
                   Sobre
                 </Link>
               </li>
+              <li>
+                <Link to='info' className="nav-link" spy={true} smooth={true} >
+                  Info
+                </Link>
+              </li>
             </ul>
           </div>
         </div>

@@ -149,6 +149,11 @@ section.success {
   font-size: small;
 }
 
+.infoJumbo{
+  background-image:url('../img/white.png');
+
+}
+
 
 
 .about-text-left{
