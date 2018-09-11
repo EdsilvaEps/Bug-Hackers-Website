@@ -26,7 +26,7 @@ export class NavBar extends Component {
     // handling window resizing with throttle
    throttle(200,
       // responsivity achieved through checking for window size
-      this.setState({ isMobile: window.innerWidth < 480 })
+      this.setState({ isMobile: window.innerWidth < 880 })
     );
    console.log(this.state.isMobile);
   }
@@ -82,33 +82,41 @@ export class NavBar extends Component {
 
   render(){
 
+    const divStyle = {
+      color:'white',
+    //background:'white',
+
+    };
+
     const dropdown =
-        <Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
-          <DropdownToggle caret>
+        <Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggle} style={divStyle} >
+          <DropdownToggle caret color="info">
             Menu
           </DropdownToggle>
-          <DropdownMenu>
-            <DropdownItem>
+
+            <DropdownMenu>
               <Link className="nav-link" onClick={this.scrollToTop}>
-                Inicio
+                <DropdownItem>
+                  Inicio
+                </DropdownItem>
               </Link>
-            </DropdownItem>
-            <DropdownItem>
-              <Link className="nav-link" onClick={this.scrollToTop}>
-                Inicio
+              <Link to='projects' className="nav-link" spy={true} smooth={true}>
+                <DropdownItem>
+                  Projetos
+                </DropdownItem>
               </Link>
-            </DropdownItem>
-            <DropdownItem>
-              <Link to='about' className="nav-link" spy={true} smooth={true} >
-                Sobre
+              <Link to='about' className="nav-link" spy={true} smooth={true}>
+                <DropdownItem>
+                  Sobre
+                </DropdownItem>
               </Link>
-            </DropdownItem>
-            <DropdownItem>
-              <Link to='info' className="nav-link" spy={true} smooth={true} >
-                Info
+              <Link to='info' className="nav-link" spy={true} smooth={true}>
+                <DropdownItem>
+                  Info
+                </DropdownItem>
               </Link>
-            </DropdownItem>
-          </DropdownMenu>
+            </DropdownMenu>
+
         </Dropdown>
 
     ;
@@ -147,7 +155,7 @@ export class NavBar extends Component {
         onChange={this.handleChange}>
         <div className="container">
           <a className="navbar-brand" href="#page-top">Bug Hackers Hackerspace</a>
-          <div id="navbarResponsive">
+          <div id="navbarResponsive" style={divStyle}>
 
             {view}
 

@@ -123,6 +123,12 @@ section.success {
 
 }
 
+.img-round{
+  border-radius: 50%;
+  width: 70px;
+  height: 70px;
+}
+
 
 .container-body{
   padding-top: 150px;
@@ -170,6 +176,11 @@ section.success {
   text-transform: uppercase;
   background: #00989D;
   font-size: small;
+}
+
+.navDiv{
+  color:'white';
+  background: 'white';
 }
 
 

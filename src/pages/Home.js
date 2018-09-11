@@ -29,7 +29,9 @@ export class Home extends Component {
             <ArticlesListContainer/>
           </Element>
         </Col>
-      </Row>
+
+
+      </Row>  
       </Container>
 
       <Element name="about" className="element">
@@ -39,6 +41,7 @@ export class Home extends Component {
       <Element name="info" className="element">
         <InfoContainer/>
       </Element>
+
 
       </div>
     )
