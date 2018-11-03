@@ -1,4 +1,4 @@
-import React , { Component}  from 'react';
+import React   from 'react';
 import { Container, Row, Col, Jumbotron, Media } from 'reactstrap';
 import PropTypes from 'prop-types'
 
@@ -7,7 +7,7 @@ export const AboutJumbo = (props) =>{
 
   const members = props.members.map((member, index) =>{
 
-    if(index % 2 == 0){
+    if(index % 2 === 0){
       return(
         <Row>
           <br/>

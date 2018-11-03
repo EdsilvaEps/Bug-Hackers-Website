@@ -1,25 +1,25 @@
 import React from 'react';
-import { ListGroup, ListGroupItem, ListGroupItemHeading, ListGroupItemText, Badge, Media } from 'reactstrap';
+import { ListGroup, ListGroupItem, ListGroupItemHeading, Badge, Media } from 'reactstrap';
 import PropTypes from 'prop-types';
 
 export const EventsList = (props) =>{
   const events = props.items.map((event) => {
     let badge = ''
     let image = ''
-    if(event.badge == 'Bug Hackers'){
+    if(event.badge === 'Bug Hackers'){
       badge = <Badge color="info">{event.badge}</Badge>;
     }
-    else if(event.badge == 'CETELI'){
+    else if(event.badge === 'CETELI'){
       badge = <Badge color="danger">{event.badge}</Badge>;
     }
-    else if(event.badge == 'Icomp'){
+    else if(event.badge === 'Icomp'){
       badge = <Badge color="primary">{event.badge}</Badge>;
     }
-    else if (event.badge == 'blog'){
+    else if (event.badge === 'blog'){
       badge = <Badge color="light">{event.badge}</Badge>;
     }
 
-    if(event.src != ''){
+    if(event.src !== ''){
       image = <Media left href="#"><Media object src={event.src} alt={event.alt} className="events-image"/></Media>;
     }
 
@@ -49,11 +49,13 @@ export const EventsList = (props) =>{
   );
 };
 
+// enforce these argument formats:
 EventsList.propTypes = {
   items : PropTypes.array,
   listName: PropTypes.string.required
 };
 
+// default arguments
 EventsList.defaultProps = {
   items: [
     {

@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import { Nav, NavItem, Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
-import { Route, NavLink, HashRouter } from 'react-router-dom';
-import { Link, DirectLink, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll';
+import { Nav, Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
+import { Link, Events, animateScroll as scroll, scroller } from 'react-scroll';
 //import { throttle } from 'lodash.throttle'; TODO: uninstall this lib
 import { throttle } from 'throttle-debounce';
+import Variables from '../Variables';
 
 import '../css/freelancer.css';
 import '../vendor/font-awesome/css/font-awesome.min.css';
@@ -14,7 +14,7 @@ import '../vendor/bootstrap/css/bootstrap.min.css';
 export class NavBar extends Component {
   constructor(props){
     super(props);
-    this.state = { isMobile: false, dropdownOpen: false }
+    this.state = { isMobile: Variables.isMobile(), dropdownOpen: false }
     this.handleChange = this.handleChange.bind(this);
     this.scrollToTop = this.scrollToTop.bind(this);
     this.handleWindowResize = this.handleWindowResize.bind(this);
@@ -44,6 +44,7 @@ export class NavBar extends Component {
     }));
   }
 
+  // inializing listeners
   componentDidMount(){
 
     window.addEventListener('resize', this.handleWindowResize);
@@ -58,6 +59,7 @@ export class NavBar extends Component {
 
   }
 
+  // specified element
   scrollTo(){
     scroller.scrollTo('scroll-to-element', {
       duration: 300,
@@ -66,10 +68,12 @@ export class NavBar extends Component {
     })
   }
 
+  // method for scrolling to top
   scrollToTop(){
     scroll.scrollToTop();
   }
 
+  // remeve listeners
   componentWillUnMount(){
     window.removeEventListener('resize', this.handleWindowResize);
     Events.scrollEvent.remove('being');

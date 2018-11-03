@@ -1,5 +1,4 @@
 import React , { Component}  from 'react';
-import { SliderContainer } from '../containers/SliderContainer';
 import { EventsListContainer } from '../containers/EventsListContainer';
 import { ArticlesListContainer } from '../containers/ArticlesListContainer';
 import { Container, Row, Col } from 'reactstrap';

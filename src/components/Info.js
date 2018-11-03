@@ -1,5 +1,5 @@
 import React from 'react';
-import { Jumbotron, Button, Container, Media, Row, Col } from 'reactstrap';
+import { Jumbotron, Container, Media, Row, Col } from 'reactstrap';
 import PropTypes from 'prop-types';
 
 

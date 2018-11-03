@@ -1,12 +1,5 @@
 import React from 'react';
 import { Slider } from '../components/Slider';
-import {
-  Carousel,
-  CarouselItem,
-  CarouselControl,
-  CarouselIndicators,
-  CarouselCaption
-} from 'reactstrap';
 
 const items = [
   {
