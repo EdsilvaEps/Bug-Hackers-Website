@@ -3,7 +3,8 @@ import { Nav, Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'react
 import { Link, Events, animateScroll as scroll, scroller } from 'react-scroll';
 //import { throttle } from 'lodash.throttle'; TODO: uninstall this lib
 import { throttle } from 'throttle-debounce';
-import Variables from '../Variables';
+import VariableStore from '../Stores/VariableStore';
+import * as VariableActions from "../actions/VariableActions";
 
 import '../css/freelancer.css';
 import '../vendor/font-awesome/css/font-awesome.min.css';
@@ -14,22 +15,24 @@ import '../vendor/bootstrap/css/bootstrap.min.css';
 export class NavBar extends Component {
   constructor(props){
     super(props);
-    this.state = { isMobile: Variables.isMobile(), dropdownOpen: false }
+    this.state = { isMobile: VariableStore.isMobile(), dropdownOpen: false }
     this.handleChange = this.handleChange.bind(this);
     this.scrollToTop = this.scrollToTop.bind(this);
     this.handleWindowResize = this.handleWindowResize.bind(this);
     this.toggle = this.toggle.bind(this);
   }
 
-  handleWindowResize = () => {
+  handleWindowResize = () => { // TODO: update VariableStore
 
     // handling window resizing with throttle
    throttle(200,
       // responsivity achieved through checking for window size
-      this.setState({ isMobile: window.innerWidth < 880 })
+      // send data through VariableActions for global broadcasting
+      VariableActions.setMobile(window.innerWidth < 880)
+      //this.setState({ isMobile: window.innerWidth < 880 }
     );
    console.log(this.state.isMobile);
-  }
+ }
 
 
   handleChange(e,pg){
@@ -42,6 +45,15 @@ export class NavBar extends Component {
     this.setState(prevState => ({
       dropdownOpen: !prevState.dropdownOpen
     }));
+  }
+
+  componentWillMount(){
+    // subscribe to VariableStore change of screen
+    VariableStore.on("screen-size-change", () =>{
+      this.setState({
+        isMobile: VariableStore.isMobile()
+      });
+    });
   }
 
   // inializing listeners
