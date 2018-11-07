@@ -22,13 +22,14 @@ export class NavBar extends Component {
     this.toggle = this.toggle.bind(this);
   }
 
-  handleWindowResize = () => { // TODO: update VariableStore
+  handleWindowResize = () => {
 
     // handling window resizing with throttle
    throttle(200,
       // responsivity achieved through checking for window size
       // send data through VariableActions for global broadcasting
-      VariableActions.setMobile(window.innerWidth < 880)
+
+      VariableActions.setMobile(window.innerWidth < 800)
       //this.setState({ isMobile: window.innerWidth < 880 }
     );
    console.log(this.state.isMobile);
@@ -48,6 +49,7 @@ export class NavBar extends Component {
   }
 
   componentWillMount(){
+
     // subscribe to VariableStore change of screen
     VariableStore.on("screen-size-change", () =>{
       this.setState({
@@ -58,6 +60,9 @@ export class NavBar extends Component {
 
   // inializing listeners
   componentDidMount(){
+
+    // check window size after mounting
+    VariableActions.setMobile(window.innerWidth < 800);
 
     window.addEventListener('resize', this.handleWindowResize);
 
@@ -90,6 +95,7 @@ export class NavBar extends Component {
     window.removeEventListener('resize', this.handleWindowResize);
     Events.scrollEvent.remove('being');
     Events.scrollEvent.remove('end');
+
   }
 
 
@@ -111,11 +117,11 @@ export class NavBar extends Component {
           </DropdownToggle>
 
             <DropdownMenu>
-              <Link className="nav-link" onClick={this.scrollToTop}>
+              <div className="nav-link" onClick={this.scrollToTop}>
                 <DropdownItem>
                   Inicio
                 </DropdownItem>
-              </Link>
+              </div>
               <Link to='projects' className="nav-link" spy={true} smooth={true}>
                 <DropdownItem>
                   Projetos
@@ -140,9 +146,9 @@ export class NavBar extends Component {
     const navmenu =
       <ul className="navbar-nav ml-auto">
         <li>
-          <Link className="nav-link" onClick={this.scrollToTop}>
+          <div className="nav-link" onClick={this.scrollToTop}>
             Inicio
-          </Link>
+          </div>
         </li>
         <li>
           <Link to="projects"  className="nav-link" spy={true} smooth={true}>

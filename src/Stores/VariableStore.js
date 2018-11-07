@@ -56,5 +56,5 @@ const variablestore = new VariableStore;
 dispatcher.register(variablestore.handleActions.bind(variablestore));
 
 // expose dispatcher globally for test with web console
-//window.dispatcher = dispatcher;
+window.dispatcher = dispatcher;
 export default variablestore;

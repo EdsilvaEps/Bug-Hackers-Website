@@ -6,9 +6,25 @@ import { AboutJumboContainer } from '../containers/AboutJumboContainer';
 //import { ContactusContainer } from '../containers/ContactusContainer';
 import { InfoContainer } from '../containers/InfoContainer';
 import { Container, Row, Col } from 'reactstrap';
-import { Element } from 'react-scroll'
+import { Element } from 'react-scroll';
+import VariableStore from '../Stores/VariableStore';
 
 export class Home extends Component {
+
+  constructor(props){
+    super(props);
+    this.state = {isMobile: VariableStore.isMobile};
+  }
+
+  componentWillMount(){
+    // subscribe to VariableStore change of screen
+    VariableStore.on("screen-size-change", () =>{
+      this.setState({
+        isMobile: VariableStore.isMobile()
+      });
+    });
+  }
+
   render(){
     return (
       <div>

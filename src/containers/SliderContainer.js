@@ -1,5 +1,6 @@
 import React from 'react';
 import { Slider } from '../components/Slider';
+import VariableStore from '../Stores/VariableStore';
 
 const items = [
   {
@@ -22,12 +23,21 @@ const items = [
 export class SliderContainer extends React.Component {
   constructor(props){
     super(props);
-    this.state = { activeIndex: 0 };
+    this.state = { isMobile: VariableStore.isMobile(), activeIndex: 0 };
     this.next = this.next.bind(this);
     this.previous = this.previous.bind(this);
     this.goToIndex = this.goToIndex.bind(this);
     this.onExiting = this.onExiting.bind(this);
     this.onExited = this.onExited.bind(this);
+  }
+
+  componentWillMount(){
+    // subscribe to VariableStore change of screen
+    VariableStore.on("screen-size-change", () =>{
+      this.setState({
+        isMobile: VariableStore.isMobile()
+      });
+    });
   }
 
   onExiting() {
@@ -56,8 +66,15 @@ export class SliderContainer extends React.Component {
   }
 
   render(){
-    return <Slider onExiting={this.onExiting} onExited={this.onExited}
-    items={items}  activeIndex={this.state.activeIndex} next={this.next} previous={this.previous}
-    goToIndex={this.goToIndex}/>;
+
+    if(!this.state.isMobile){
+      return <Slider onExiting={this.onExiting} onExited={this.onExited}
+      items={items}  activeIndex={this.state.activeIndex} next={this.next} previous={this.previous}
+      goToIndex={this.goToIndex}/>;
+    } else{
+      return <div></div>
+    }
+
+
   }
 }
